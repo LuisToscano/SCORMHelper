@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <input id="prueba" type="text">
+            <input type="submit" onclick="test();">
+        </div>
+    </body>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="js/SCORM_2004_APIWrapper.js" type="text/javascript"></script>
+    <script src="js/SCORM_HELPER.js" type="text/javascript"></script>
+    <script>
+        function test(){
+            UPDATE_INTERACTION_DATA("0", $("#prueba").val(), "correct");
+            SEND_INTERACTION_TO_LMS("0");
+            SET_OBJECTIVE_DESCRIPTION("id de prueba","descripcion de prueba");
+            SET_OBJECTIVE_STATUS("id de prueba","failed");
+            SET_TOTAL_SCORE(85,"passed");
+            console.log(SCORM_HELP);
+        }
+    </script>
+</html>

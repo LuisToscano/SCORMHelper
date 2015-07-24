@@ -1,0 +1,8 @@
+{
+    "0" : {
+        "type":"fill-in", 
+        "question":"Esta es una pregunta de prueba",
+        "answer":"Esta es la respuesta correcta",
+        "resource":3
+    }
+}

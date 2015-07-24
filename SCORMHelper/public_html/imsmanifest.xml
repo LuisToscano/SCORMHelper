@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" identifier="MANIFEST-CCED0204-39ED-D02A-67D6-D44E36B537CE" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://ltsc.ieee.org/xsd/LOM lom.xsd http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd" version="1.3">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+  </metadata>
+  <organizations default="ORG-C141BB3E-BE8A-5FDC-0876-FA10C4774C14">
+    <organization identifier="ORG-C141BB3E-BE8A-5FDC-0876-FA10C4774C14" adlseq:objectivesGlobalToSystem="false" adlcp:sharedDataGlobalToSystem="false">
+      <title>Prueba SCORM API</title>
+      <item identifier="CONTENT-WRAPPER" isvisible="false">
+        <title>Content Wrapper</title>
+        <item identifier="SCO-1" identifierref="R1" isvisible="true">
+          <title>SCO 1</title>
+          <adlcp:dataFromLMS>{"ass_criteria_0":"descripcion de prueba 1", "ass_criteria_1": "descripcion de prueba 2"}</adlcp:dataFromLMS>
+          <imsss:sequencing>
+            <imsss:rollupRules rollupObjectiveSatisfied="true" rollupProgressCompletion="true" objectiveMeasureWeight="0" />
+            <imsss:objectives>
+              <imsss:primaryObjective objectiveID="obj-primary" satisfiedByMeasure="false">
+                <imsss:mapInfo targetObjectiveID="obj-example-global-1" writeSatisfiedStatus="true" />
+              </imsss:primaryObjective>
+            </imsss:objectives>
+            <imsss:deliveryControls objectiveSetByContent = "true"/>
+          </imsss:sequencing>
+        </item>
+        <imsss:sequencing>
+          <imsss:controlMode flow="true" choice="true" choiceExit="false" />
+          <imsss:rollupRules rollupObjectiveSatisfied="true" rollupProgressCompletion="true" objectiveMeasureWeight="0" />
+        </imsss:sequencing>
+      </item>
+      <imsss:sequencing>
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="R1" href="sco1.html" adlcp:scormType="sco" type="webcontent" xml:base="content/"></resource>
+  </resources>
+</manifest>
+
