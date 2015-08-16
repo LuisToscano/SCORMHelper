@@ -1,0 +1,51 @@
+{
+    "num_intentos": 2,
+    "pregunta":"seleccione y arrastre según corresponda. Tiene dos intentos para esta actividad",
+    "tipo": "uno a uno",
+    "drags": {
+        "1": {
+            "descripcion": "eme"
+        },
+        "2": {
+            "descripcion": "eñe"
+        },
+        "3": {
+            "descripcion": "ene"
+        },
+        "4": {
+            "descripcion": "pe"
+        },
+        "5": {
+            "descripcion": "ere"
+        },
+        "6": {
+            "descripcion": "a"
+        }
+    },
+    "drops": {
+        "1": {
+            "descripcion": "lugar 1",
+            "accepted": []
+        },
+        "2": {
+            "descripcion": "lugar 2",
+            "accepted": []
+        },
+        "3": {
+            "descripcion": "lugar 3",
+            "accepted": []
+        },
+        "4": {
+            "descripcion": "lugar 4",
+            "accepted": []
+        },
+        "5": {
+            "descripcion": "lugar 5",
+            "accepted": []
+        },
+        "6": {
+            "descripcion": "lugar 6",
+            "accepted": []
+        }
+    }
+}

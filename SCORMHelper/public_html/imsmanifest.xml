@@ -11,7 +11,7 @@
         <title>Content Wrapper</title>
         <item identifier="SCO-1" identifierref="R1" isvisible="true">
           <title>SCO 1</title>
-          <adlcp:dataFromLMS>{"ass_criteria_0":"descripcion de prueba 1", "ass_criteria_1": "descripcion de prueba 2"}</adlcp:dataFromLMS>
+          <adlcp:dataFromLMS>{"test_criteria_0":"descripcion de prueba 1", "test_criteria_1": "descripcion de prueba 2"}</adlcp:dataFromLMS>
           <imsss:sequencing>
             <imsss:rollupRules rollupObjectiveSatisfied="true" rollupProgressCompletion="true" objectiveMeasureWeight="0" />
             <imsss:objectives>
@@ -32,7 +32,7 @@
     </organization>
   </organizations>
   <resources>
-    <resource identifier="R1" href="sco1.html" adlcp:scormType="sco" type="webcontent" xml:base="content/"></resource>
+    <resource identifier="R1" href="index.html" adlcp:scormType="sco" type="webcontent" xml:base="content/"></resource>
   </resources>
 </manifest>
 

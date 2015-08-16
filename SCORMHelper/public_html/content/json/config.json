@@ -1,0 +1,144 @@
+{
+    "default": {
+        "url_pages": "compositions/",
+        "default_page": ["1"]
+    },
+    "paginas": {
+        "1": {
+            "type": "portada",
+            "recurso": "1",
+            "url": "recursos/R1/esn1le01ob02r1.html",
+            "al_cerrar": {
+                "cargar": "2",
+                "cambia_color": "2"
+            },
+            "titulo": "Empecemos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "2": {
+            "type": "recurso",
+            "recurso": "2",
+            "url": "recursos/R2/esn1le01ob02r2.html",
+            "titulo": "Exploremos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "3": {
+            "type": "actividad",
+            "recurso": "3",
+            "actividad": "drag_drop",
+            "url": "recursos/R3/esn1le01ob02r3.html",
+            "interaction": {
+                "ALL": true
+            },
+            "titulo": "Practiquemos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "4": {
+            "type": "actividad",
+            "recurso": "4",
+            "actividad": "drag_drop",
+            "url": "recursos/R4/esn1le01ob02r4.html",
+            "interaction": {
+                "ALL": true
+            },
+            "titulo": "Practiquemos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "5": {
+            "type": "actividad",
+            "recurso": "5",
+            "actividad": "R5_QQSM",
+            "url": "recursos/R5/R5.html",
+            "interaction": {
+                "ALL": true
+            },
+            "titulo": "Practiquemos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "6": {
+            "type": "actividad",
+            "recurso": "6",
+            "actividad": "R6",
+            "url": "recursos/R6/R6.html",
+            "interaction": {
+                "ALL": false
+            },
+            "titulo": "Evaluemos",
+            "subtitulo": "¡A deletrear!"
+        },
+        "7": {
+            "type": "recurso",
+            "recurso": "7",
+            "url": "recursos/R7/esn1le01ob02r7.html",
+            "pdf":"../../../media/pdf/esn1le01ob02guion.pdf",
+            "titulo": "Aprendamos en papel",
+            "subtitulo": "¡A deletrear!"
+        },
+        "vocabulario": {
+            "url": "anexos/vocabulario/vocabulario.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "learning": {
+            "url": "anexos/puntoaprendizaje/puntoaprendizaje.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "incompleto": {
+            "url": "elementos_plantilla/completar/completar.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "correcto": {
+            "url": "elementos_plantilla/correcto/correcto.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "incorrecto": {
+            "url": "elementos_plantilla/incorrecto/incorrecto.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "nuevointento": {
+            "url": "elementos_plantilla/nuevointento/nuevointento.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "tiempo": {
+            "url": "elementos_plantilla/tiempo/tiempo.html",
+            "type": "popup_mini",
+            "symbols": {
+            }
+        },
+        "creditos": {
+            "url": "elementos_plantilla/creditos/creditos.html",
+            "type": "popup_full",
+            "symbols": {
+            }
+        },
+        "info": {
+            "url": "elementos_plantilla/Información/Informacion.html",
+            "type": "popup_full",
+            "symbols": {
+            }
+        },
+        "ayudas": {
+            "url": "elementos_plantilla/ayuda/ayuda.html",
+            "type": "popup_full",
+            "symbols": {
+            }
+        },
+        "accesibilidad": {
+            "url": "elementos_plantilla/Accesibilidad/Accesibilidad.html",
+            "type": "popup_full",
+            "symbols": {
+            }
+        }        
+    }
+}

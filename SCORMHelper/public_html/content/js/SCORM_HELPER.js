@@ -4,45 +4,32 @@
  * and open the template in the editor.
  */
 
-var SCORM_HELP = {"launch_data": {}, "suspend_data": {}, "interactions": {}, "last_location": {}};
 var IS_SCORM;
 
 /******************************************************************************/
 
-$(window).load(function () {
-    SCORM_INITIALIZE();
-});
-
+/*
 $(window).unload(function () {
-    SCORM_TERMINATE();
+    //SCORM_TERMINATE();
 });
-
-$(document).on('loadedInteractions', function (e) {
-    jQuery.each(SCORM_HELP.interactions, function (id, val) {
-        var intIndex = findInteraction(id);
-        if (intIndex < 0) {
-            intIndex = doGetValue("cmi.interactions._count");
-            doSetValue("cmi.interactions." + intIndex + ".id", id);
-            doSetValue("cmi.interactions." + intIndex + ".type", val.type);
-            doSetValue("cmi.interactions." + intIndex + ".description", val.question);
-        }
-    });
-});
+ */
 
 /******************************************************************************/
 
 function SCORM_INITIALIZE() {
 
-    LOAD_INTERACTIONS();
-    IS_SCORM = getAPI() != null;
+    //LOAD_INTERACTIONS();
+    IS_SCORM = getAPI() !== null;
 
     if (!IS_SCORM) {
         console.log("SCORM API can not be accessed");
-        return;
+        return "";
     }
+    
+    var suspend = ""; 
 
     if (doInitialize() !== "initialized") {
-        READ_LAUNCH_DATA();
+        //READ_LAUNCH_DATA();
 
         var entry = doGetValue("cmi.entry");
         if (entry === "ab-initio") {
@@ -52,10 +39,12 @@ function SCORM_INITIALIZE() {
         }
         else {
             //already entered
-            READ_SUSPEND_DATA();
-            SCORM_HELP.last_location = doGetValue("cmi.location");
+            suspend = READ_SUSPEND_DATA();
+            //SCORM_HELP.last_location = doGetValue("cmi.location");
         }
     }
+    
+    return suspend;
 }
 
 /******************************************************************************/
@@ -71,7 +60,7 @@ function SCORM_TERMINATE() {
 }
 
 /******************************************************************************/
-
+/*
 function UPDATE_INTERACTION_DATA(id, response, result) {
 
     if (SCORM_HELP.interactions[id] !== null) {
@@ -80,10 +69,27 @@ function UPDATE_INTERACTION_DATA(id, response, result) {
     } else {
         console.log("Interaction " + id + " does not exist");
     }
+}*/
+
+/******************************************************************************/
+
+function SEND_INTERACTION_TO_LMS(id, response, result, description, type) {
+
+    if (!IS_SCORM) {
+        console.log("SCORM API can not be accessed");
+        return;
+    }
+    
+    var intIndex = findInteraction(id);
+    doSetValue("cmi.interactions." + intIndex + ".description", description);
+    doSetValue("cmi.interactions." + intIndex + ".type", type);
+    doSetValue("cmi.interactions." + intIndex + ".result", result);
+    doSetValue("cmi.interactions." + intIndex + ".learner_response", response);
 }
 
 /******************************************************************************/
 
+/*
 function SEND_INTERACTION_TO_LMS(id) {
 
     if (!IS_SCORM) {
@@ -104,7 +110,7 @@ function SEND_INTERACTION_TO_LMS(id) {
     } else {
         console.log("Interaction data missing");
     }
-}
+}*/
 
 /******************************************************************************/
 
@@ -130,10 +136,7 @@ function READ_SUSPEND_DATA() {
         return;
     }
 
-    var sdata = doGetValue("cmi.suspend_data");
-    if (sdata !== null && sdata.length > 0) {
-        SCORM_HELP.suspend_data = jQuery.parseJSON(sdata);
-    }
+    return doGetValue("cmi.suspend_data");
 }
 
 /******************************************************************************/
@@ -145,8 +148,7 @@ function WRITE_SUSPEND_DATA(data) {
         return;
     }
 
-    SCORM_HELP.suspend_data = data;
-    doSetValue("cmi.suspend_data", JSON.stringify(data));
+    doSetValue("cmi.suspend_data", data);
 }
 
 /******************************************************************************/
@@ -207,14 +209,24 @@ function CHANGE_LOCATION(location) {
 /******************************************************************************/
 
 function LOAD_INTERACTIONS() {
-    $.ajax({
-        url: "../content/json/interactions.json"
-    }).done(function (data) {
-        SCORM_HELP.interactions = data;
-        $.event.trigger({
-            type: "loadedInteractions"
-        });
-    });
+    
+    if (!IS_SCORM) {
+        console.log("SCORM API can not be accessed");
+        return;
+    }
+    
+    //id, response, result, description, type
+    var cont = doGetValue("cmi.interactions._count");
+    var interactions = {};
+    for(var i=0; i<cont; i++){
+        var intObj = {};
+        intObj.type = doGetValue("cmi.interactions."+i+".type");
+        intObj.respuesta = jQuery.parseJSON(doGetValue("cmi.interactions."+i+".learner_response"));
+        intObj.pregunta = doGetValue("cmi.interactions."+i+".description");
+        intObj.result = doGetValue("cmi.interactions."+i+".result");
+        interactions[doGetValue("cmi.interactions."+i+".id")] = intObj;
+    }
+    return interactions;
 }
 
 

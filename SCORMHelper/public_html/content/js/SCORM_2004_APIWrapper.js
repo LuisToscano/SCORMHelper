@@ -535,6 +535,7 @@ function findObjective(objId)
 ** Description:
 **
 *******************************************************************************/
+
 function findInteraction(intId) 
 {
     var num = doGetValue("cmi.interactions._count");
@@ -546,7 +547,13 @@ function findInteraction(intId)
             break;
         }
     }
-    
+
+    if (intIndex == -1) {
+        message("Interaction " + intId + " not found.");
+        intIndex = num;
+        message("Creating new interaction at index " + intIndex);
+        doSetValue("cmi.interactions." + intIndex + ".id", intId);
+    }
     return intIndex;
 }
 
